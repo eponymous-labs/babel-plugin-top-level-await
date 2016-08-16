@@ -1,12 +1,12 @@
 # Top Level Await
 
-https://github.com/tc39/ecmascript-asyncawait/issues/9
+This is a simple Babel plugin which automatically wraps top-level `await` expressions.
 
-The general approach is to throw stuff into a big async function.
+That is, it'll turn code like:
 
 	await fetch('http://www.google.com/')
 
-Turns into:
+into:
 
 	(async function(){
 		await fetch('http://www.google.com/')
@@ -35,6 +35,8 @@ This is transpiled conveniently into:
 
 The current implementation doesn't support exports. Top level awaits might interfere with the behavior of certain modules (as many of their exports may not be defined until well after the module has been loaded). Anyway, this top-level await transform is primarily useful for REPL-style interactions, as essentially a convenience to avoid wrapping things with an async IIFE (immediately invoked function expression).
 
+
+Additional Information: https://github.com/tc39/ecmascript-asyncawait/issues/9
 
 # To Run:
 
