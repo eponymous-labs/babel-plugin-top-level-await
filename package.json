@@ -1,0 +1,22 @@
+{
+  "name": "babel-plugin-top-level-await",
+  "version": "0.5.0",
+  "description": "babel plugin for automatically wrapping top level awaits",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eponymous-labs/babel-plugin-top-level-await.git"
+  },
+  "author": "antimatter15",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eponymous-labs/babel-plugin-top-level-await/issues"
+  },
+  "homepage": "https://github.com/eponymous-labs/babel-plugin-top-level-await#readme"
+}
