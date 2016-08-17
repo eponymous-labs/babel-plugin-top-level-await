@@ -12,7 +12,7 @@ var code = readFileSync('./test.js', 'utf8');
 
 var out = pipeline.pretransform(code, {
 	presets: ['es2015', 'stage-1'],
-	plugins: [require('./top-level-await.js').default]
+	plugins: [require('../lib/top-level-await.js').default]
 })
 
 

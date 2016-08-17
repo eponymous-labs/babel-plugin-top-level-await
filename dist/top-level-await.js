@@ -58,7 +58,7 @@ exports.default = function (_ref) {
                 });
 
                 // here's the actual magical mess
-                path.replaceWith(t.program(imports.concat([t.expressionStatement(t.callExpression(t.functionExpression(null, // anonymous
+                path.replaceWith(t.program(imports.concat([t.exportNamedDeclaration(t.variableDeclaration("const", [t.variableDeclarator(t.identifier('__async'), t.booleanLiteral(true))]), [], null), t.exportDefaultDeclaration(t.callExpression(t.functionExpression(null, // anonymous
                 [], // params
                 t.blockStatement(statements), false, // generator
                 true), // async
