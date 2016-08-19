@@ -22,9 +22,7 @@ exports.default = function (_ref) {
                 path.traverse({
                     AwaitExpression: function AwaitExpression(path) {
                         var parent = path.getFunctionParent();
-                        if (parent.type === 'Program') {
-                            has_await = true;
-                        }
+                        if (parent.type === 'Program') has_await = true;
                     },
                     ExportDeclaration: function ExportDeclaration() {
                         has_export = true;
@@ -58,11 +56,11 @@ exports.default = function (_ref) {
                 });
 
                 // here's the actual magical mess
-                path.replaceWith(t.program(imports.concat([t.exportNamedDeclaration(t.variableDeclaration("const", [t.variableDeclarator(t.identifier('__async'), t.booleanLiteral(true))]), [], null), t.exportDefaultDeclaration(t.callExpression(t.functionExpression(null, // anonymous
+                path.replaceWith(t.program(imports.concat([t.exportNamedDeclaration(t.variableDeclaration("const", [t.variableDeclarator(t.identifier('__async'), t.callExpression(t.functionExpression(null, // anonymous
                 [], // params
                 t.blockStatement(statements), false, // generator
                 true), // async
-                []))])));
+                []))]), [], null)])));
             }
         }
     };
@@ -71,6 +69,27 @@ exports.default = function (_ref) {
 var _types = require("babylon/lib/tokenizer/types");
 
 var _parser = require("babylon/lib/parser");
+
+// Copyright (c) 2016 antimatter15
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 
 _parser.plugins.topLevelAwait = function (instance) {
     instance.extend("parseTopLevel", function (file, program) {

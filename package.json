@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-top-level-await",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "babel plugin for automatically wrapping top level awaits",
   "main": "dist/top-level-await.js",
   "directories": {
